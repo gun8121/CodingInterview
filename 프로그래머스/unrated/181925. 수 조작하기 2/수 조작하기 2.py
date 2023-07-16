@@ -1,9 +1,13 @@
 def solution(numLog):
-    answer = ''
-    dic = { 1: "w", -1: "s", 10: "d", -10: "a" }
-    
-    for idx, val in enumerate(numLog):
-        if idx != len(numLog)-1: 
-            answer += dic[numLog[idx+1] - numLog[idx]]
-    
+    answer = ''  
+    for i in range(1, len(numLog)):
+        diff = numLog[i] - numLog[i-1]
+        if diff == 1:
+            answer += 'w'
+        elif diff == -1:
+            answer += 's'
+        elif diff == 10:
+            answer += 'd'
+        else:
+            answer += 'a'
     return answer
